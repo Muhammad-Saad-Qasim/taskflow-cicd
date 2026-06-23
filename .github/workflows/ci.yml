@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check HTML Files
+        run: |
+          ls
+          test -f index.html
+          test -f add-task.html
+          test -f task-list.html
+          test -f task-detail.html
+          test -f about.html
+
+      - name: Success
+        run: echo "CI Passed"
