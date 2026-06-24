@@ -1,22 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>About TaskFlow</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow — About / Help</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<header>
-    <h1>About TaskFlow</h1>
-</header>
-
-<div class="container">
-    <div class="card">
-        <p>TaskFlow is a simple task management system.</p>
-        <p>You can add, view, and manage tasks easily.</p>
-        <p>Use navigation bar to move between pages.</p>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand"><span class="logo">✓</span> TaskFlow</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="add-task.html">Add Task</a></li>
+          <li><a href="task-list.html">Task List</a></li>
+          <li><a href="task-detail.html">Task Detail</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+        </ul>
+      </nav>
     </div>
-</div>
+  </header>
 
+  <main>
+    <h1 class="page-title">About TaskFlow</h1>
+    <p class="page-subtitle">A lightweight task-management web application.</p>
+
+    <div class="card about-section">
+      <h2>What is TaskFlow?</h2>
+      <p>
+        TaskFlow is a simple, lightweight task-management application built as part of the
+        DevOps Fundamentals CI/CD assignment. It helps you keep track of your tasks, their
+        priorities, due dates, and completion status — all from a clean, consistent interface.
+      </p>
+      <p>
+        The application is containerized with Docker and deployed automatically to Render
+        through a GitHub Actions CI/CD pipeline.
+      </p>
+    </div>
+
+    <div class="card about-section">
+      <h2>Purpose</h2>
+      <p>
+        The goal of TaskFlow is to demonstrate a complete, automated software-delivery workflow:
+        from building individual feature pages, to running continuous integration on every pull
+        request, to continuously deploying the merged result to a live environment.
+      </p>
+    </div>
+
+    <div class="card about-section">
+      <h2>How to Use TaskFlow</h2>
+      <ol class="steps">
+        <li>Open the <strong>Dashboard</strong> to see a summary of your total, pending, and completed tasks.</li>
+        <li>Go to <strong>Add Task</strong> to create a new task with a title, description, due date, and priority.</li>
+        <li>Visit the <strong>Task List</strong> to view all tasks and filter them by All, Pending, or Completed.</li>
+        <li>Click any task to open its <strong>Task Detail</strong> page, where you can mark it complete or delete it.</li>
+        <li>Use the navigation bar at the top to move between pages at any time.</li>
+      </ol>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 TaskFlow — DevOps Fundamentals CI/CD Assignment
+  </footer>
 </body>
 </html>
