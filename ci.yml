@@ -1,0 +1,39 @@
+name: CI - Build & Push Docker Image
+
+# Trigger: pull_request event targeting the "develop" branch ONLY
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1 - Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2 - Authenticate with Docker Hub using repository secrets
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # Step 3 & 4 - Build the image from the Dockerfile and tag it
+      #   - tags with "latest"
+      #   - also tags with the short commit SHA (github.sha)
+      - name: Build and tag Docker image
+        run: |
+          docker build \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/taskflow-cicd:latest \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/taskflow-cicd:${{ github.sha }} \
+            .
+
+      # Step 5 - Push the tagged image to Docker Hub
+      - name: Push image to Docker Hub
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/taskflow-cicd:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/taskflow-cicd:${{ github.sha }}
