@@ -1,54 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Add Task</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow — Add Task</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
-    <header>
-        <h1>Add New Task</h1>
-
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="add-task.html">Add Task</a>
-            <a href="task-list.html">Task List</a>
-            <a href="task-detail.html">Task Detail</a>
-            <a href="about.html">About</a>
-        </nav>
-
-    </header>
-
-    <div class="container">
-
-        <form>
-
-            <label>Task Title</label>
-            <input type="text">
-
-            <label>Description</label>
-            <textarea rows="5"></textarea>
-
-            <label>Due Date</label>
-            <input type="date">
-
-            <label>Priority</label>
-
-            <select>
-                <option>High</option>
-                <option>Medium</option>
-                <option>Low</option>
-            </select>
-
-            <button>Add Task</button>
-
-        </form>
-
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand"><span class="logo">✓</span> TaskFlow</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="add-task.html" class="active">Add Task</a></li>
+          <li><a href="task-list.html">Task List</a></li>
+          <li><a href="task-detail.html">Task Detail</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
+  <main>
+    <h1 class="page-title">Add a New Task</h1>
+    <p class="page-subtitle">Fill in the details below to create a task.</p>
+
+    <div class="card form-card">
+      <form action="task-list.html" method="get">
+        <div class="form-group">
+          <label for="title">Task Title</label>
+          <input type="text" id="title" name="title" placeholder="e.g. Finish CI/CD pipeline" required />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" placeholder="Add more details about this task..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="due-date">Due Date</label>
+          <input type="date" id="due-date" name="due_date" required />
+        </div>
+
+        <div class="form-group">
+          <label for="priority">Priority</label>
+          <select id="priority" name="priority">
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save Task</button>
+          <a href="index.html" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 TaskFlow — DevOps Fundamentals CI/CD Assignment
+  </footer>
 </body>
-
 </html>
